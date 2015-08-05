@@ -1,0 +1,17 @@
+body {
+  background-color: #F2F7F3;
+}
+
+#spree-header {
+  background: #44B649;
+  background-size: cover;
+  /*margin-bottom: 0;*/
+}
+
+#spree-header #header {
+  padding: 0;
+}
+
+#spree-header #logo img{
+  width: 20rem;
+}
