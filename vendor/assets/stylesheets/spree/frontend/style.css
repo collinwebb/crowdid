@@ -2,6 +2,14 @@ body {
   background-color: #F2F7F3;
 }
 
+.cart-info {
+  margin-right: 1.2rem;
+}
+
+#top-nav-bar {
+  margin-top: 1.2rem;
+}
+
 #spree-header {
   background: #44B649;
   background-size: cover;
