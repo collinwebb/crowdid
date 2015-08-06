@@ -18,3 +18,10 @@ Deface::Override.new(
   :remove => "nav",
   :name => "hide_main_nav_bar"
 )
+
+Deface::Override.new(
+  :virtual_path => "spree/shared/_header",
+  :set_attributes => ".container",
+  :attributes => {:class => ""},
+  :name => "remove_container_class"
+)
