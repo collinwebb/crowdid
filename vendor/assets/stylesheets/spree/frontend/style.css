@@ -1,3 +1,6 @@
+/*main crowdid color = rgb(68, 182, 73)*/
+
+
 body {
   background-color: #F2F7F3;
 }
@@ -11,7 +14,6 @@ body {
 }
 
 #spree-header {
-  background: #44B649;
   background-size: cover;
   margin-bottom: 0;
 }
@@ -26,4 +28,8 @@ body {
 
 #spree-header #logo img{
   width: 20rem;
+}
+
+header#header div.row{
+  background-color: rgb(68, 182, 73);
 }
