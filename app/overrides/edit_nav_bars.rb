@@ -25,3 +25,17 @@ Deface::Override.new(
   :attributes => {:class => ""},
   :name => "remove_container_class"
 )
+
+Deface::Override.new(
+  :virtual_path => "spree/shared/_nav_bar",
+  :set_attributes => ".col-md-8",
+  :attributes => {:class => "col-sm-9"},
+  :name => "change_menu_column_width"
+)
+
+Deface::Override.new(
+  :virtual_path => "spree/shared/_header",
+  :set_attributes => ".col-md-4",
+  :attributes => {:class => "col-sm-3"},
+  :name => "change_logo_column_width"
+)
