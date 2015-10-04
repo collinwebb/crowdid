@@ -21,8 +21,8 @@ Deface::Override.new(
 
 Deface::Override.new(
   :virtual_path => "spree/shared/_header",
-  :set_attributes => ".container",
-  :attributes => {:class => ""},
+  :remove_from_attributes => ".container",
+  :attributes => {:class => "container"},
   :name => "remove_container_class"
 )
 
