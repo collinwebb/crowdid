@@ -1,4 +1,19 @@
 GIT
+  remote: git://github.com/spree-contrib/spree_social.git
+  revision: 1ba6a7dfb5ee1021422c09e740d5b312551b6272
+  branch: 3-0-stable
+  specs:
+    spree_social (3.0.0.rc4)
+      oa-core
+      omniauth
+      omniauth-amazon
+      omniauth-facebook
+      omniauth-github
+      omniauth-google-oauth2
+      omniauth-twitter
+      spree_core (~> 3.0.0.rc4)
+
+GIT
   remote: git://github.com/spree/spree_auth_devise.git
   revision: b554f307e5aa887110a70d54f8967c284f881375
   branch: 3-0-stable
@@ -76,6 +91,8 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    braintree (2.48.1)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -118,6 +135,8 @@ GEM
       devise (>= 2.1.0)
     erubis (2.7.0)
     execjs (2.5.2)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     ffaker (1.32.1)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
@@ -125,6 +144,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    hashie (3.4.2)
     highline (1.6.21)
     htmlentities (4.3.4)
     httparty (0.13.5)
@@ -141,6 +161,7 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
+    jwt (1.5.1)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -157,8 +178,43 @@ GEM
       i18n (>= 0.6.4, <= 0.7.0)
     multi_json (1.11.2)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    oa-core (0.3.2)
+    oauth (0.4.7)
+    oauth2 (1.0.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    omniauth-amazon (1.0.0)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-facebook (2.0.1)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-github (1.1.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-google-oauth2 (0.2.8)
+      addressable (~> 2.3)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.1.1)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.3.1)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    omniauth-twitter (1.2.1)
+      json (~> 1.3)
+      omniauth-oauth (~> 1.1)
     orm_adapter (0.5.0)
     paperclip (4.2.4)
       activemodel (>= 3.2.0)
@@ -336,6 +392,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  braintree
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
@@ -348,6 +405,7 @@ DEPENDENCIES
   spree (= 3.0.3)
   spree_auth_devise!
   spree_gateway!
+  spree_social!
   spring
   turbolinks
   uglifier (>= 1.3.0)
