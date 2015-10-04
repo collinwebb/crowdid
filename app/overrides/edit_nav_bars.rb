@@ -39,3 +39,10 @@ Deface::Override.new(
   :attributes => {:class => "col-sm-3"},
   :name => "change_logo_column_width"
 )
+
+Deface::Override.new(
+  :virtual_path => "spree/shared/_header",
+  :add_to_attributes => "#header",
+  :attributes => {:class => "navbar-fixed-top"},
+  :name => "make_navbar_fixed"
+)
