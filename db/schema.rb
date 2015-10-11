@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20151011232915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +154,19 @@
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "spree_feedback_reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "review_id",                 null: false
+    t.integer  "rating",     default: 0
+    t.text     "comment"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "locale",     default: "en"
+  end
+
+  add_index "spree_feedback_reviews", ["review_id"], name: "index_spree_feedback_reviews_on_review_id", using: :btree
+  add_index "spree_feedback_reviews", ["user_id"], name: "index_spree_feedback_reviews_on_user_id", using: :btree
 
   create_table "spree_gateways", force: :cascade do |t|
     t.string   "type"
@@ -399,7 +413,7 @@
   add_index "spree_product_properties", ["property_id"], name: "index_spree_product_properties_on_property_id", using: :btree
 
   create_table "spree_products", force: :cascade do |t|
-    t.string   "name",                 default: "",   null: false
+    t.string   "name",                                         default: "",   null: false
     t.text     "description"
     t.datetime "available_on"
     t.datetime "deleted_at"
@@ -408,10 +422,12 @@
     t.string   "meta_keywords"
     t.integer  "tax_category_id"
     t.integer  "shipping_category_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.boolean  "promotionable",        default: true
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
+    t.boolean  "promotionable",                                default: true
     t.string   "meta_title"
+    t.decimal  "avg_rating",           precision: 7, scale: 5, default: 0.0,  null: false
+    t.integer  "reviews_count",                                default: 0,    null: false
   end
 
   add_index "spree_products", ["available_on"], name: "index_spree_products_on_available_on", using: :btree
@@ -624,6 +640,24 @@
 
   add_index "spree_return_items", ["customer_return_id"], name: "index_return_items_on_customer_return_id", using: :btree
   add_index "spree_return_items", ["exchange_inventory_unit_id"], name: "index_spree_return_items_on_exchange_inventory_unit_id", using: :btree
+
+  create_table "spree_reviews", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "location"
+    t.integer  "rating"
+    t.text     "title"
+    t.text     "review"
+    t.boolean  "approved",        default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "user_id"
+    t.string   "ip_address"
+    t.string   "locale",          default: "en"
+    t.boolean  "show_identifier", default: true
+  end
+
+  add_index "spree_reviews", ["show_identifier"], name: "index_spree_reviews_on_show_identifier", using: :btree
 
   create_table "spree_roles", force: :cascade do |t|
     t.string "name"
