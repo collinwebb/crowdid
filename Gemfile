@@ -52,3 +52,4 @@ gem 'rails_12factor', group: :production
 gem 'spree_social', github: 'spree-contrib/spree_social', branch: '3-0-stable'
 gem 'spree_mail_settings', github: 'spree-contrib/spree_mail_settings', branch: '3-0-stable'
 gem 'spree_reviews', github: 'spree-contrib/spree_reviews', branch: '3-0-stable'
+gem 'spree_social_products', github: 'spree-contrib/spree_social_products', branch: '3-0-stable'
