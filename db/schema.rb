@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011232915) do
+ActiveRecord::Schema.define(version: 20151014034748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -428,6 +428,7 @@ ActiveRecord::Schema.define(version: 20151011232915) do
     t.string   "meta_title"
     t.decimal  "avg_rating",           precision: 7, scale: 5, default: 0.0,  null: false
     t.integer  "reviews_count",                                default: 0,    null: false
+    t.string   "tax_cloud_tic"
   end
 
   add_index "spree_products", ["available_on"], name: "index_spree_products_on_available_on", using: :btree
@@ -875,6 +876,33 @@ ActiveRecord::Schema.define(version: 20151011232915) do
 
   add_index "spree_tax_categories", ["deleted_at"], name: "index_spree_tax_categories_on_deleted_at", using: :btree
   add_index "spree_tax_categories", ["is_default"], name: "index_spree_tax_categories_on_is_default", using: :btree
+
+  create_table "spree_tax_cloud_cart_items", force: :cascade do |t|
+    t.integer  "index"
+    t.integer  "tic"
+    t.string   "sku"
+    t.integer  "quantity"
+    t.decimal  "price",                    precision: 8,  scale: 2, default: 0.0
+    t.decimal  "amount",                   precision: 13, scale: 5, default: 0.0
+    t.decimal  "ship_total",               precision: 10, scale: 2, default: 0.0
+    t.integer  "line_item_id"
+    t.integer  "tax_cloud_transaction_id"
+    t.string   "type"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  add_index "spree_tax_cloud_cart_items", ["line_item_id"], name: "index_spree_tax_cloud_cart_items_on_line_item_id", using: :btree
+  add_index "spree_tax_cloud_cart_items", ["tax_cloud_transaction_id"], name: "index_spree_tax_cloud_cart_items_on_tax_cloud_transaction_id", using: :btree
+
+  create_table "spree_tax_cloud_transactions", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "spree_tax_cloud_transactions", ["order_id"], name: "index_spree_tax_cloud_transactions_on_order_id", using: :btree
 
   create_table "spree_tax_rates", force: :cascade do |t|
     t.decimal  "amount",             precision: 8, scale: 5
