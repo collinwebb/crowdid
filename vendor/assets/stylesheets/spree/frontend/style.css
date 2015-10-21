@@ -13,6 +13,21 @@ body {
   margin-top: 1.2rem;
 }
 
+@media (max-width: 767px) {
+  body {
+    padding-top: 0;
+  }
+  .navbar-fixed-top {
+    position: relative;
+  }
+}
+
+@media (max-width: 926px) {
+  #taxon {
+    display: none;
+  }
+}
+
 #spree-header {
   background-size: cover;
   margin-bottom: 0;
