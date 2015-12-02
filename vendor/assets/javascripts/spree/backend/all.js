@@ -11,3 +11,4 @@
 //= require_tree .
 //= require spree/backend/spree_reviews
 //= require spree/backend/spree_social_products
+//= require spree/backend/spree_drop_ship
