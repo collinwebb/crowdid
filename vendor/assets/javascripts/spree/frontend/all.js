@@ -12,3 +12,4 @@
 //= require spree/frontend/spree_reviews
 //= require spree/frontend/spree_social_products
 //= require spree/frontend/spree_drop_ship
+//= require spree/frontend/spree_contact_us

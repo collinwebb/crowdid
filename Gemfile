@@ -56,3 +56,4 @@ gem 'spree_social_products', github: 'spree-contrib/spree_social_products', bran
 gem 'spree_email_to_friend', github: 'spree-contrib/spree_email_to_friend', branch: '3-0-stable'
 gem 'spree_tax_cloud', github: 'spree-contrib/spree_tax_cloud', branch: 'master'
 gem 'spree_drop_ship', github: 'spree-contrib/spree_drop_ship', branch: '3-0-stable'
+gem 'spree_contact_us', github: 'spree-contrib/spree_contact_us', branch: '3-0-stable'
