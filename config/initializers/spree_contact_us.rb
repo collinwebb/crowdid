@@ -6,10 +6,10 @@ SpreeContactUs.setup do |config|
 
   # Configure the e-mail address which email notifications should be sent from.  If emails must be sent from a verified email address you may set it here.
   # Example:
-  config.mailer_from = "contact@crowdid.co"
+  config.mailer_from = "info@crowdid.co"
 
   # Configure the e-mail address which should receive the contact form email notifications.
-  config.mailer_to = "contact@crowdid.co"
+  config.mailer_to = "info@crowdid.co"
 
   # ==> Form Configuration
 
